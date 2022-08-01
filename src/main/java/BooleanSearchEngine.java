@@ -11,7 +11,7 @@ public class BooleanSearchEngine implements SearchEngine {
 
     public BooleanSearchEngine(File pdfsDir) throws IOException {
         for (File file : Objects.requireNonNull(pdfsDir.listFiles())) {
-                var doc = new PdfDocument(new PdfReader(file));
+                PdfDocument doc = new PdfDocument(new PdfReader(file));
 
                 for (int i = 1; i <= doc.getNumberOfPages(); i++) {
                     String text = PdfTextExtractor.getTextFromPage(doc.getPage(i));
